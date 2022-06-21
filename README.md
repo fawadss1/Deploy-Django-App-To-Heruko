@@ -16,7 +16,7 @@ pip freeze > requirements.txt
 
 * Add this in settings.py
 ```python
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
 * [Make a Heroku account](https://signup.heroku.com/)
@@ -27,18 +27,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 * In your terminal, type in
  ```shell
-git init
-git add .
-git commit -m "first commit"
-
 heroku login
 heroku create app_name
-git push heroku main
-heroku open
-
-heroku run python manage.py migrate
+git init
+heroku git:remote -a app_name
 ```
-** PS: if Heroku isn't recognized as a command, please close your terminal and editor and then re-open it.
+Deploy your application
+Commit your code to the repository and deploy it to Heroku using Git.
+```shell
+git add .
+git commit -am "First Commit"
+git push heroku master
+```
 
 * DEBUG = False in settings.py
 
@@ -48,5 +48,5 @@ heroku run python manage.py migrate
 ```shell
 git add .
 git commit -m "edit"
-git push heroku main
+git push heroku master
 ```
