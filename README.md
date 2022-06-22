@@ -40,13 +40,13 @@ git commit -am "First Commit"
 git push heroku master
 ```
 
-* DEBUG = False in settings.py
-
-* ALLOWED_HOSTS = ['your_app_name.herokuapp.com', 'localhost', '127.0.0.1'] in settings.py
-
+```python
+DEBUG = False in settings.py
+ALLOWED_HOSTS = ['your_app_name.herokuapp.com', 'localhost', '127.0.0.1'] in settings.py
+```
 * If you make edits, then just type in the terminal,
 ```shell
 git add .
-git commit -m "edit"
+git commit -m "Updated"
 git push heroku master
 ```
