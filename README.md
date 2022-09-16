@@ -25,11 +25,7 @@ pip install whitenoise
 ```python
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
-```
 
-* Add your dependencies to requirements.txt by typing in the terminal,
-
-```python
 MIDDLEWARE = [
     # ...
     "django.middleware.security.SecurityMiddleware",
@@ -37,6 +33,8 @@ MIDDLEWARE = [
     # ...
 ]
 ```
+
+* Add your dependencies to requirements.txt by typing in the terminal,
 
 ```shell
 pip freeze > requirements.txt
