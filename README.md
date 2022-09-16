@@ -5,26 +5,42 @@
 
 * If you don't have git installed, follow this [Tutorial](https://www.atlassian.com/git/tutorials/install-git) and come back here.
 
-* Make a copy of your project or use a seperate git branch.
-
-* Make sure your virtual environment is activated.
-
-* Add your dependencies to requirements.txt by typing in the terminal,
-```shell
-pip freeze > requirements.txt
-```
-
-* Add this in settings.py
-```python
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-```
-
 * [Make a Heroku account](https://signup.heroku.com/)
 
 * [Download Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
 * [Configure Django Heroku](https://devcenter.heroku.com/articles/django-app-configuration)
 
+
+
+* Make a copy of your project or use a seperate git branch.
+
+* Make sure your virtual environment is activated.
+
+```shell
+pip install whitenoise
+```
+
+* Add this in settings.py
+```python
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+```
+
+* Add your dependencies to requirements.txt by typing in the terminal,
+
+```python
+MIDDLEWARE = [
+    # ...
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # ...
+]
+```
+
+```shell
+pip freeze > requirements.txt
+```
 * In your terminal, type in
  ```shell
 heroku login
